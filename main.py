@@ -2,16 +2,17 @@ from ZigBeeTx.TxController import *
 from ZigBeeTx.packetqueue import PacketQueue
 from ZigBeeTx.GUI import PortSelectGUI
 from ZigBeeTx.threads import TxThread
+import sys
 
 
 def init_controller():
-    port_select = PortSelectGUI()
-    port_select.display()
-    port = port_select.port
-    print('here')
+    # port_select = PortSelectGUI()
+    # port_select.display()
+    port = "/dev/tty.usbserial-AD01SSNN"
+    print(port)
     txcont = TxController(port)
     txcont.connect()
-    txcont.configure_remote(remote_address)
+    txcont.configure_remote()
     return txcont
 
 
@@ -27,6 +28,5 @@ def main():
     message = init_message()
     txthread = TxThread(tx, message)
     txthread.start()
-
 
 main()

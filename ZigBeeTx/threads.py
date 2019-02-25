@@ -9,7 +9,7 @@ class TxThread(threading.Thread):
         self.name = name
         self.controller = controller
         self.PQ = pq
-        self.timeout = 10
+        self.timeout = 1000
 
     def run(self):
         self.update_count = 0
@@ -20,7 +20,7 @@ class TxThread(threading.Thread):
                 packet = self.PQ.generate_message()
 
                 try:
-                    self.controller.send_synchronous(packet)
+                    self.controller.send_asynchronous(packet)
                 except serial.SerialException:
                     pass
             else:

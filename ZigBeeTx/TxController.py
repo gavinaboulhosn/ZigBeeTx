@@ -1,6 +1,7 @@
 from digi.xbee.devices import XBeeDevice, RemoteXBeeDevice, XBee64BitAddress
 from ZigBeeTx.ports import serial_ports
 import serial
+import time
 
 
 class TxController:
