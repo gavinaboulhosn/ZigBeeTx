@@ -10,7 +10,7 @@ class PacketQueue:
         self.refresh_rate = 1/self.refresh_time
         self.packet = None
         self.resets = 0
-        self.timeout = 1000
+        self.timeout = 100000000
 
     def read_csv(self):
         self.data_frame = pd.read_csv('../data.csv')

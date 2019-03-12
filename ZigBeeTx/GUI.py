@@ -40,7 +40,7 @@ class PortSelectGUI:
 
     def save_port(self):
         import os
-        with open(os.path.join(os.pardir, "port.ini"), "w") as file:
+        with open(os.path.join(os.pardir, "config.ini"), "w") as file:
             file.write(self.port)
 
 
